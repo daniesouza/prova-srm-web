@@ -1,0 +1,66 @@
+<form #form="ngForm" (ngSubmit)="pesquisar()">
+  <div class="container">
+    <div class="ui-g">
+
+      <div class="ui-g-12">
+        <h1>Lançamentos</h1>
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+        <label>Cliente</label>
+        <input type="text" pInputText name="nomeCliente" [(ngModel)]="filtro.nomeCliente">
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Pesquisar"></button>
+      </div>
+
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <p-table [value]="lancamentos"
+                   [paginator]="true"
+                   [rows]="filtro.size"
+                   [responsive]="true"
+                   [lazy]="true"
+                   [totalRecords]="totalRecords"
+                   (onLazyLoad)="onChangePage($event)"
+                   #tabela>
+
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Cliente</th>
+                <th>Risco</th>
+                <th>Limite R$</th>
+                <th>Taxa Juros</th>
+                <th class="col-button"></th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-lancamento>
+              <tr>
+                <td>{{lancamento.nomeCliente}}</td>
+                <td>{{lancamento.risco}}</td>
+                <td style="text-align: right">{{lancamento.limiteCredito | currency:'BRL':'R$':'1.2-2' }}</td>
+                <td style="text-align: right">{{lancamento.taxaJuros}}%</td>
+                <td>
+                  <button pButton
+                          icon="pi pi-pencil" pTooltip="Editar" type="button" tooltipPosition="top"
+                          [routerLink]="['/lancamentos', lancamento.id]"></button>
+                  <button pButton
+                          icon="pi pi-trash" pTooltip="Excluir" type="button" tooltipPosition="top"
+                          (click)="excluir(lancamento)"></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+
+          <div *ngIf="lancamentos.length==0">
+            No values to display here
+          </div>
+        </div>
+      </div>
+      <div class="ui-g-12">
+        <button pButton label="Novo" routerLink="/lancamentos/novo"></button>
+      </div>
+    </div>
+  </div>
+</form>

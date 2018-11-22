@@ -1,0 +1,57 @@
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="salvar(form)" autocomplete="off">
+    <div class="ui-g">
+
+      <div class="ui-g-12">
+        <h1>{{lancamento.id ? 'Editar lançamento '+lancamento.nomeCliente : 'Novo lançamento'}} </h1>
+      </div>
+
+
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+        <label>Cliente</label>
+        <input pInputText type="text" name="nomeCliente" [(ngModel)]="lancamento.nomeCliente" ngModel
+               #nomeCliente="ngModel"
+               required minlength="5">
+        <p-message severity="error" text="Informe o cliente"
+                   *ngIf="nomeCliente.hasError('required') && nomeCliente.dirty"></p-message>
+        <p-message severity="error" text=" Minimo de 5 caracteres"
+                   *ngIf="nomeCliente.hasError('minlength') && nomeCliente.dirty"></p-message>
+
+      </div>
+
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+      </div>
+
+
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+        <label>Limite de credito</label>
+        <input pInputText type="text" placeholder="0,00" currencyMask
+               [(ngModel)]="lancamento.limiteCredito"
+               [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' , allowNegative : false }"
+               name="valor" ngModel>
+      </div>
+
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+      </div>
+
+      <div class="ui-g-12  ui-md-6 ui-fluid">
+        <label>Risco</label>
+        <p-dropdown [options]="riscos" placeholder="Selecione" [autoWidth]="false"
+                    name="riscos" ngModel #categoria="ngModel"
+                    [(ngModel)]="lancamento.risco"
+                    required></p-dropdown>
+      </div>
+
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Salvar"
+                [disabled]="form.invalid"></button>
+        <button pButton type="button" label="Novo"
+                class="ui-button-info"
+                (click)="novo(form)"></button>
+        <a routerLink="/lancamentos">Voltar para a pesquisa</a>
+      </div>
+
+    </div>
+  </form>
+</div>

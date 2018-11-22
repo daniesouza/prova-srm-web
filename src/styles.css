@@ -1,0 +1,123 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #404C51;
+  margin: 0;
+}
+
+button{
+  margin-right: 5px
+}
+
+label {
+  font-weight: bold;
+}
+
+a{
+  color: #337ab7;
+}
+
+@media(min-width: 1200px){
+
+  .container{
+    width: 1170px;
+    margin: 0 auto;
+  }
+}
+
+.col-valor{
+  width: 120px;
+  text-align: right;
+}
+
+.col-data{
+  width: 120px;
+  text-align: center;
+}
+
+.col-button{
+  width: 95px;
+  text-align: center;
+}
+
+.ui-messages.ui-messages-success,.ui-message.ui-message-success {
+  background-color: #b7d8b7;
+  border: 0 none;
+  color: #212121;
+  margin-top: 4px;
+}
+
+.ui-message.ui-message-info {
+  background-color: #7fbcec;
+  border: 0 none;
+  color: #212121;
+  margin-top: 4px;
+}
+
+.ui-message.ui-message-warn {
+  background-color: #ffe399;
+  border: 0 none;
+  color: #212121;
+  margin-top: 4px;
+}
+
+.ui-message.ui-message-error  {
+  background-color: #f44336;
+  border: 0 none;
+  color: white;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.ui-message.ui-message-success {
+  background-color: #b7d8b7;
+  border: 0 none;
+  color: #212121;
+}
+
+.ui-messages.ui-messages-info {
+  background-color: #7fbcec;
+  border: 0 none;
+  color: #212121;
+}
+
+.ui-messages.ui-messages-warn {
+  background-color: #ffe399;
+  border: 0 none;
+  color: #212121;
+}
+
+.ui-messages.ui-messages-error  {
+  background-color: #f44336;
+  border: 0 none;
+  color: white;
+  font-weight: bold;
+}
+
+.ui-toast .ui-toast-message.ui-toast-message-success {
+  background-color: #b7d8b7;
+  border: 0 none;
+  color: #212121;
+}
+
+.ui-toast .ui-toast-message.ui-toast-message-info {
+  background-color: #7fbcec;
+  border: 0 none;
+  color: #212121;
+}
+.ui-toast .ui-toast-message.ui-toast-message-warn {
+  background-color: #ffe399;
+  border: 0 none;
+  color: #212121;
+}
+
+.ui-toast .ui-toast-message.ui-toast-message-error {
+  background-color: #f8b7bd;
+  border: 0 none;
+  color: #212121;
+}
+
+.ui-toast .ui-toast-message.ui-toast-message-success .ui-toast-close-icon {
+  color: #212121;
+}
+
