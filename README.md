@@ -5,7 +5,9 @@
 
 ### Para rodar em Dev server
 Run npm install para instalar as dependencias
+
 Run `ng serve` para dev server. 
+
 Navegar ate `http://localhost:4200/`
 
 
